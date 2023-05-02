@@ -15,6 +15,7 @@ Clone the repository:
 ``` cd OpenWeatherMap ```
 
 # Run the tests:
-``` mvn clean test ```
-
-The tests will execute in parallel, and you can view the test results in the target/cucumber-reports directory.
+- ### For UI test automation:
+  Navigate to src/test/java/runner/TestRunner.java and run. This will run all UI test cases.
+- ### For API test automation: 
+  Navigate to src/test/java/api_test/WeatherApi_Automate.java and run the file.
