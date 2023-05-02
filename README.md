@@ -19,3 +19,8 @@ Clone the repository:
   Navigate to src/test/java/runner/TestRunner.java and run. This will run all UI test cases.
 - ### For API test automation: 
   Navigate to src/test/java/api_test/WeatherApi_Automate.java and run the file.
+
+# Test Reports:
+- Navigate to target folder and can find the file cucumber-reports.html.
+- Right click and Copy Path/Reference.
+- Open the copied path in any browser.
