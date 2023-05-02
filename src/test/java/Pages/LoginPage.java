@@ -1,6 +1,4 @@
 package Pages;
-
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,83 +7,63 @@ import utils.ConfigFileReader;
 
 public class LoginPage {
 
-        WebDriver driver;
+    WebDriver driver;
 
-        ConfigFileReader configFileReader;
-
-
+    ConfigFileReader configFileReader;
     @FindBy(linkText = "Sign in")
     WebElement signinlink;
 
-    @FindBy(xpath ="//form[@action='/users/sign_in']//input[@id='user_email']")
+    @FindBy(xpath = "//form[@action='/users/sign_in']//input[@id='user_email']")
     WebElement useremail;
 
-    @FindBy(xpath ="//form[@action='/users/sign_in']//input[@id='user_password']")
+    @FindBy(xpath = "//form[@action='/users/sign_in']//input[@id='user_password']")
     WebElement pwd;
 
-    @FindBy(xpath ="//form[@action='/users/sign_in']//input[@type='submit']")
+    @FindBy(xpath = "//form[@action='/users/sign_in']//input[@type='submit']")
     WebElement submitbutton;
 
     @FindBy(linkText = "Click here to recover")
     WebElement forgotpassword;
 
-    @FindBy(xpath="//div[contains(text(),'Signed in successfully.')]")
+    @FindBy(xpath = "//div[contains(text(),'Signed in successfully.')]")
     WebElement loginsuccessmessage;
 
-    @FindBy(xpath="//div[contains(text(),'Invalid Email or password.')]")
+    @FindBy(xpath = "//div[contains(text(),'Invalid Email or password.')]")
     WebElement loginerrormessage;
 
-    public LoginPage(WebDriver driver){
-
-        PageFactory.initElements(driver,this);
+    public LoginPage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
         configFileReader = new ConfigFileReader();
     }
+
     public String getPageUrl() {
         return configFileReader.getApplicationUrl();
-
     }
-    public void signInLink(){
+    public void signInLink() {
         signinlink.click();
     }
-
     public void enterEmail(String email) {
         useremail.sendKeys(email);
-
     }
     public void enterPassword(String password) {
-       pwd.sendKeys(password);
-
+        pwd.sendKeys(password);
     }
-
-    public void submitButton(){
-
+    public void submitButton() {
         submitbutton.click();
     }
-
-    public boolean  isLoginSuccess() {
-        if(loginsuccessmessage.isDisplayed()) {
-            return true;
-        }
-        return false;
+    public boolean isLoginSuccess() {
+        return loginsuccessmessage.isDisplayed();
     }
-
-    public String  loginSuccessMessage() {
+    public String loginSuccessMessage() {
         return loginsuccessmessage.getText();
     }
 
-    public boolean  invalidLoginErrorMessage() {
-        if(loginerrormessage.isDisplayed()) {
-            return true;
-        }
-        return false;
-
+    public boolean invalidLoginErrorMessage() {
+        return loginerrormessage.isDisplayed();
     }
-
     public void recoverPassword() {
         forgotpassword.click();
     }
-
-
-    }
+}
 
 

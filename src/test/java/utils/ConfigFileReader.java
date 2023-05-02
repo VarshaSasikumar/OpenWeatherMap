@@ -6,18 +6,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
-public class ConfigFileReader
-{
+public class ConfigFileReader {
 
-    private Properties properties;
+    private final String propertyFilePath = "config/Configuration.properties";
+    private final Properties properties;
 
-    private final String propertyFilePath= "config/Configuration.properties";
-
-    public ConfigFileReader()
-    {
+    public ConfigFileReader() {
 
         try {
-           BufferedReader reader = new BufferedReader(new FileReader(propertyFilePath));
+            BufferedReader reader = new BufferedReader(new FileReader(propertyFilePath));
             properties = new Properties();
             try {
                 properties.load(reader);
@@ -32,13 +29,11 @@ public class ConfigFileReader
     }
 
     public String getApplicationUrl() {
-
         String url = properties.getProperty("url");
-
         if (url != null) return url;
         else throw new RuntimeException("url not specified in the Configuration.properties file.");
     }
-    }
+}
 
 
 

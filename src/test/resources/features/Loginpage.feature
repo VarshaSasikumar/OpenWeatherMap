@@ -18,7 +18,7 @@ Feature: Login Functionality of OpenWeatherMap Website
     Then I should see an error message indicating "<error_message>"
 
     Examples:
-      | email          | password        | error_message                                         |
+      | email             | password        | error_message              |
       | invalid@email.com | invalidPassword | Invalid Email or password. |
       | abcccc            | validPassword   | Invalid Email or password. |
       | valid@email.com   | abccc           | Invalid Email or password. |
