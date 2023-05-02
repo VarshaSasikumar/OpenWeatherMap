@@ -7,15 +7,18 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import utils.ConfigFileReader;
 import utils.Hooks;
 
 public class LoginstepDefnition {
     static LoginPage loginPage;
+    static ConfigFileReader configFileReader;
     WebDriver driver = null;
 
     public LoginstepDefnition() {
         this.driver = Hooks.driver;
         loginPage = PageFactory.initElements(Hooks.driver, LoginPage.class);
+        configFileReader = new ConfigFileReader();
     }
 
     @Given("I am on the OpenWeather Signin Page")
@@ -27,8 +30,8 @@ public class LoginstepDefnition {
 
     @Given("User enters Credentials to LogIn")
     public void enter_email_password() {
-        loginPage.enterEmail("varshask1903@gmail.com");
-        loginPage.enterPassword("Password#1");
+        loginPage.enterUserName(configFileReader.getUserName());
+        loginPage.enterPassword(configFileReader.getPassword());
     }
 
     @When("I click on the submit button")
@@ -45,7 +48,7 @@ public class LoginstepDefnition {
 
     @Given("I have entered invalid {string} and {string}")
     public void i_have_entered_invalid_and(String email, String password) {
-        loginPage.enterEmail(email);
+        loginPage.enterUserName(email);
         loginPage.enterPassword(password);
     }
 

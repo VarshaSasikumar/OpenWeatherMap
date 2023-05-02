@@ -33,6 +33,30 @@ public class ConfigFileReader {
         if (url != null) return url;
         else throw new RuntimeException("url not specified in the Configuration.properties file.");
     }
+
+    public String getUserName() {
+        String username = properties.getProperty("username");
+        if (username != null) return username;
+        else throw new RuntimeException("username not specified in the Configuration.properties file.");
+    }
+
+    public String getPassword() {
+        String pwd = properties.getProperty("pwd");
+        if (pwd != null) return pwd;
+        else throw new RuntimeException("password not specified in the Configuration.properties file.");
+    }
+
+    public String getAPIBaseUrl() {
+        String apibaseurl = properties.getProperty("apibaseurl");
+        if (apibaseurl != null) return apibaseurl;
+        else throw new RuntimeException("apibaseurl not specified in the Configuration.properties file.");
+    }
+
+    public String getAppId() {
+        String appid = properties.getProperty("appid");
+        if (appid != null) return appid;
+        else throw new RuntimeException("appid not specified in the Configuration.properties file.");
+    }
 }
 
 

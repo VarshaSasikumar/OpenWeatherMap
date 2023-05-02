@@ -42,7 +42,7 @@ public class LoginPage {
     public void signInLink() {
         signinlink.click();
     }
-    public void enterEmail(String email) {
+    public void enterUserName(String email) {
         useremail.sendKeys(email);
     }
     public void enterPassword(String password) {
